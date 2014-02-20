@@ -58,18 +58,14 @@ namespace NBA_2K_Downloader
                         string size = file.IniReadValue(playerName, "Size").Replace(",", "");
                         string url = file.IniReadValue(playerName, "URL");
                         string text = size;
+
                         if (Convert.ToInt32(size) >= 0x40000000)
-                        {
                             size = Convert.ToString((long)((((long)Math.Round((double)(((double)Convert.ToInt32(size)) / 1024.0))) / 0x400L) / 0x400L)) + " GBs";
-                        }
                         else if (Convert.ToInt32(size) >= 0x100000)
-                        {
                             size = Convert.ToString((long)(((long)Math.Round((double)(((double)Convert.ToInt32(size)) / 1024.0))) / 0x400L)) + " MBs";
-                        }
                         else if (Convert.ToInt32(size) >= 0x400)
-                        {
                             size = Convert.ToString((double)(((double)Convert.ToInt32(size)) / 1024.0)) + " KBs";
-                        }
+
                         ListViewItem item = new ListViewItem(playerName);
                         item.SubItems.Add(size);
                         item.SubItems.Add(text);
@@ -80,18 +76,14 @@ namespace NBA_2K_Downloader
                         string size_2 = file2.IniReadValue(playerName, "Size").Replace(",", "");
                         string url_2 = file2.IniReadValue(playerName, "URL");
                         string text_2 = size_2;
+
                         if (Convert.ToInt32(size_2) >= 0x40000000)
-                        {
                             size_2 = Convert.ToString((long)((((long)Math.Round((double)(((double)Convert.ToInt32(size_2)) / 1024.0))) / 0x400L) / 0x400L)) + " GBs";
-                        }
                         else if (Convert.ToInt32(size_2) >= 0x100000)
-                        {
                             size_2 = Convert.ToString((long)(((long)Math.Round((double)(((double)Convert.ToInt32(size_2)) / 1024.0))) / 0x400L)) + " MBs";
-                        }
                         else if (Convert.ToInt32(size_2) >= 0x400)
-                        {
                             size_2 = Convert.ToString((double)(((double)Convert.ToInt32(size_2)) / 1024.0)) + " KBs";
-                        }
+
                         ListViewItem item2 = new ListViewItem(playerName_2);
                         item2.SubItems.Add(size_2);
                         item2.SubItems.Add(text_2);
@@ -122,9 +114,7 @@ namespace NBA_2K_Downloader
         private void DownloadCMG(string Selected)
         {
             if (this.listView1.Items.Count == 0)
-            {
                 MessageBox.Show("Select a MP item first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            }
             else
             {
                 SaveFileDialog dialog = new SaveFileDialog
@@ -191,9 +181,7 @@ namespace NBA_2K_Downloader
 
             }
             if (!flag)
-            {
                 MessageBox.Show("No matches found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-            }
         }
         
         //Search File Button
